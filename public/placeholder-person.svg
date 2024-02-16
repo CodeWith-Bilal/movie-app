@@ -1,0 +1,7 @@
+<!-- This is a placeholder for person profiles when no image is available -->
+<svg width="185" height="278" viewBox="0 0 185 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="185" height="278" fill="#F3F4F6"/>
+  <circle cx="92.5" cy="90" r="30" fill="#D1D5DB"/>
+  <path d="M60 150C60 135 75 125 92.5 125C110 125 125 135 125 150V200H60V150Z" fill="#D1D5DB"/>
+  <text x="92.5" y="240" text-anchor="middle" fill="#9CA3AF" font-family="Arial" font-size="12">No Photo</text>
+</svg>

@@ -1,0 +1,6 @@
+<!-- This is a placeholder for movie backdrops when no image is available -->
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#1F2937"/>
+  <path d="M540 260L640 160L740 260V460L640 360L540 460V260Z" fill="#4B5563"/>
+  <text x="640" y="500" text-anchor="middle" fill="#9CA3AF" font-family="Arial" font-size="36">No Backdrop Available</text>
+</svg>
