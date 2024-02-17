@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 MovieApp - Next.js Movie Discovery App
 
-## Getting Started
+A modern movie discovery application built with Next.js 14, Redux Toolkit, and Tailwind CSS. Browse, search, and discover movies using The Movie Database (TMDb) API.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 🏠 Core Pages
+- **Home/Movies Page (`/movies`)** - Browse paginated movie listings
+- **Movie Detail Page (`/movies/[id]`)** - Detailed movie information with cast, genres, and trailers
+- **Search & Filter** - Real-time search with genre, year, and rating filters
+
+### 🔧 Components
+- **MovieCard** - Displays movie poster, title, rating, and release date
+- **SearchBar** - Debounced search input with clear functionality
+- **Pagination** - Navigate through movie pages
+- **FiltersBar** - Genre, year, and sort filters
+- **Loader & Error Components** - User feedback for loading and error states
+
+### 🛠 Technical Features
+- **Redux Toolkit** for state management
+- **Server-side filtering** and pagination
+- **Responsive design** with Tailwind CSS
+- **Image optimization** with Next.js Image component
+- **TypeScript** for type safety
+- **Modern App Router** architecture
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- TMDb API key (free from [themoviedb.org](https://www.themoviedb.org/settings/api))
+
+### Installation
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   # Copy the example environment file
+   cp .env.local.example .env.local
+   ```
+   
+   Edit `.env.local` and add your TMDb API key:
+   ```env
+   NEXT_PUBLIC_TMDB_API_KEY=your-actual-api-key-here
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🔑 Getting a TMDb API Key
+
+1. Create a free account at [TMDb](https://www.themoviedb.org/signup)
+2. Go to your [API settings](https://www.themoviedb.org/settings/api)
+3. Follow the instructions to get your API key
+4. Add it to your `.env.local` file
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── movies/            # Movies pages
+│   │   ├── [id]/          # Dynamic movie detail page
+│   │   └── page.tsx       # Movies listing page
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page (redirects to /movies)
+├── components/            # Reusable components
+│   ├── layout/           # Header, Footer
+│   ├── movies/           # Movie-specific components
+│   └── ui/               # Generic UI components
+├── lib/                  # Utilities and configuration
+│   ├── api/              # API layer (TMDb)
+│   └── redux/            # Redux store and slices
+└── public/               # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Usage Examples
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Browse Movies
+- Visit `/movies` to see popular movies
+- Use pagination to browse through results
+- Apply filters for genre, year, or sorting
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Search Movies
+- Use the search bar to find specific movies
+- Search works with pagination and filters
+- Clear search to return to browsing mode
 
-## Learn More
+### View Movie Details
+- Click any movie card to view full details
+- See cast, genres, ratings, and budget information
+- Watch trailers (when available)
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Available Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Redux State Structure
+```typescript
+{
+  movies: {
+    movies: Movie[],
+    loading: boolean,
+    currentPage: number,
+    totalPages: number,
+    searchQuery: string
+  },
+  movieDetail: {
+    movieDetail: MovieDetail | null,
+    cast: CastMember[],
+    videos: Video[],
+    loading: boolean
+  },
+  filters: {
+    genre: string,
+    year: string,
+    sortBy: string
+  }
+}
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Built with ❤️ using Next.js, Redux Toolkit, and Tailwind CSS**
